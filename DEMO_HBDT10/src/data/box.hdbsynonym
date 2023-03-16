@@ -1,0 +1,8 @@
+{
+ "people": {
+ "target": {
+ "object": "PEOPLE",
+ "schema": "BOX01"
+ }
+ }
+}

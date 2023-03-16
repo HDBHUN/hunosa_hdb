@@ -1,0 +1,28 @@
+ID: DEMO_T10
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: DEMO_HBDT10
+    type: hdb
+    path: DEMO_HBDT10
+    requires:
+      - name: hdi_DEMO_HBDT10
+      - name: cross-container-service-1
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_1
+          service: '~{the-service-name}'
+resources:
+  - name: hdi_DEMO_HBDT10
+    parameters:
+      config:
+        schema: DEMO_HDBT10
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: cross-container-service-1
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: CROSS_SCHEMA_BOX01
+    properties:
+      the-service-name: '${service-name}'

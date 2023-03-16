@@ -1,0 +1,9 @@
+using people as P;
+	context box {
+	define view peopleView as
+	select from P { 
+	P.ID as id,
+	P.FIRSTNAME as firstname,
+	P.LASTNAME as lastname
+	} ;
+};
